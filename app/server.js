@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const errorhandler = require('errorhandler');
 const cors = require('cors');
 
-const config = require('config').server;
+const config = require('../config').server;
 
 require('dotenv').config({ path: '.env' });
 

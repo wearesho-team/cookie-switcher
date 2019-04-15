@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "NODE_PATH=. nodemon --exec \"babel-node\" ./app/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "NODE_PATH=. nodemon --exec \"babel-node\" ./app/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +20,7 @@
     "cookie": "^0.3.1",
     "eslint": "^5.16.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-react": "^7.12.4",
-    "nodemon": "^1.18.11"
+    "eslint-plugin-react": "^7.12.4"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -31,6 +29,7 @@
     "dotenv": "^7.0.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.4",
-    "express-cluster": "0.0.5"
+    "express-cluster": "0.0.5",
+    "nodemon": "^1.18.11"
   }
 }
