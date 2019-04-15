@@ -2,7 +2,14 @@ const cookieParser = require('cookie');
 const identificator = process.env.COOKIE_NAME;
 
 function formCookie(request) {
-    return `${identificator}=${request.body.id}`;
+    let cookies = cookieParser.parse(request.headers.cookie);
+
+    if (cookies[identificator] !== undefined) {
+        return `${identificator}=${cookies[identificator]}`;
+    }
+    else {
+        return `${identificator}=${request.body.id}`;
+    }
 }
 
 function fetchCookie(request) {
