@@ -1,7 +1,5 @@
-const cluster = require('express-cluster');
 const express = require('express');
 const bodyParser = require('body-parser');
-const errorhandler = require('errorhandler');
 const cors = require('cors');
 
 const config = require('../config').server;
@@ -25,26 +23,15 @@ function run() {
             // trust proxy in production from local nginx front server
             app.set('trust proxy', 'loopback');
 
-            // enable cors in dev
-            app.use(cors());
-
             // set the base uri
             app.set('baseUrl', config.baseUrl);
 
             // mount the routes
             app.use(routes);
-
-            // mount server cluster
-            cluster((worker) => app.listen(config.port, config.host, () => {
-                console.log(`worker ${worker.id} online`);
-            }));
             break;
         default:
-            // enable cors in dev
-            app.use(cors());
-
             // handle errors and send them back to browser
-            app.use(errorhandler());
+            app.use(require('errorhandler'));
 
             // set the base uri
             app.set('baseUrl', config.baseUrl);

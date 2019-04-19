@@ -15,10 +15,7 @@ app.post('/', (request, response) => {
 });
 
 app.get('/', (request, response) => {
-    response.send(fetchCookie(request))
-        .catch(error => {
-            response.status(400).send(error);
-        });
+    response.send(fetchCookie(request));
 });
 
 // the catch all route
